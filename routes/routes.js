@@ -1,0 +1,10 @@
+const controller = require("../controllers/controller");
+
+module.exports = function(app)
+{
+    app.get('/',controller.getAll);
+    app.post('/',controller.addDiner);
+
+    
+    app.get('/:name', controller.getByName);
+}
