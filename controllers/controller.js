@@ -49,34 +49,7 @@ module.exports = {
                 res.json(respon);  
                 });
             }
-        });
-        
-
-        
-
-        
-
-        // var address = new Address({district: "Bình Tân", street: "3/2", number: "42B"});
-        // address.save(function(err, res){});
-
-        // menu = [];
-        // food1 = new Food({name: "Xôi", price: 25000, rate: 10});
-        // food1.save();
-        // food2 = new Food({name: "Thịt", price: 10000, rate: 10});
-        // food2.save();
-        // menu.push(food1._id, food2._id);
-
-        // var diner = new Diner();
-        // diner.name = "Xôi Phú";
-        // diner.address = address._id;
-        // diner.menu = menu;
-        // diner.timeOpen = 15;
-        // diner.timeClose = 23.5;
-        // diner.save(function(err, respon)
-        // {
-        // if(err) console.log(err);
-        // res.json(respon);  
-        // });
+        })
     },
 
     addFood: function(req, res, next){
