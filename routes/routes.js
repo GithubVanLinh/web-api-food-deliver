@@ -7,4 +7,9 @@ module.exports = function(app)
 
     
     app.get('/:name', controller.getByName);
+    app.put('/:id', controller.addFood);
+
+    app.delete('/:name',controller.deleteDiner);
+
+    app.delete('/:name/:id', controller.deleteFood);
 }
