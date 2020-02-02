@@ -7,7 +7,7 @@ var dinerSchema = new mongoose.Schema({
     number: String,
     menu: [Object],
     discription: String,
-    average: Number,
+    average: {type: Number, default: 100},
     timeOpen: Number,
     timeClose: Number
 });

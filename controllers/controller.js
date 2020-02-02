@@ -67,12 +67,15 @@ module.exports = {
         res.render("index",{title : "API"});
     },
     getAll: function(req, res, next){
-        Diner.find({},function(err,kq){
+        Diner.find({})
+        .sort({average: -1})
+        .exec(function(err,kq){
             res.json(kq);
         });
     },
     getByID: function(req, res, next){        
         Diner.find({name: req.params.ID})
+        .sort({average: -1})
             .exec(function(err, kq){
                 res.json(kq);
             }
@@ -85,6 +88,7 @@ module.exports = {
         }
         Food.find({name:req.body.name})
         .populate("diner")
+        .sort({average: -1})
         .exec(function(err, response){
             if(err)
                 res.send(err);
@@ -173,5 +177,21 @@ module.exports = {
                 }
             }
         })
-    }
+    },
+
+    getByDistrict: function(req, res, next){
+        const district = req.body.name;        
+        Diner.find({district: district}, function(err, diners){
+            if(err){
+                console.log(err);
+                res.send(err);
+            }
+            else if(diners !== null){
+                res.json(diners);
+            } else{
+                res.json("null");
+            }
+        })
+        .sort({average: -1});
+    },
 }
