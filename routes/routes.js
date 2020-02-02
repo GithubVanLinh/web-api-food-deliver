@@ -10,6 +10,8 @@ module.exports = function(app)
     
     app.get('/all',controller.getAll);
 
+    app.get('/all/food', controller.getAllFood);
+
     //name = ???
     app.get('/district', controller.getByDistrict);
 

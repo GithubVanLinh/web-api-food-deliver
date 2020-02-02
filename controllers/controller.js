@@ -72,6 +72,12 @@ module.exports = {
             res.json(kq);
         });
     },
+    getAllFood: function(req, res, next){
+        Food.find({}).exec(function(err, foods){
+            if(!err)
+                res.json(foods);
+        })
+    },
     getByID: function(req, res, next){        
         Diner.find({name: req.params.ID})
         .sort({average: -1})
