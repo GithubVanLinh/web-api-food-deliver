@@ -2,8 +2,12 @@ const mongoose = require('../database/db');
 
 var dinerSchema = new mongoose.Schema({
     name: String,
-    address: {type: mongoose.Types.ObjectId, ref: 'Address', required: true},
-    menu: [{type: mongoose.Types.ObjectId, ref: 'Food'}],
+    district: String,
+    street: String,
+    number: String,
+    menu: [Object],
+    discription: String,
+    average: Number,
     timeOpen: Number,
     timeClose: Number
 });
