@@ -12,11 +12,10 @@ module.exports = function(app)
 
     app.get('/all/food', controller.getAllFood);
 
-    //name = ???
-    app.get('/district', controller.getByDistrict);
+    app.get('/district/:name', controller.getByDistrict);
 
     //name = ???
-    app.get('/foods',controller.getByFoodName);
+    app.get('/foods/:name',controller.getByFoodName);
 
     app.delete('/delete/:id', controller.deleteFood);
     

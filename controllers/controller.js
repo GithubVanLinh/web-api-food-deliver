@@ -185,8 +185,8 @@ module.exports = {
     },
 
     getByDistrict: function(req, res, next){
-        const district = req.body.name;        
-        Diner.find({district: district}, function(err, diners){
+        const district = req.params.name;        
+        Diner.find({district: districtToLink(district)}, function(err, diners){
             if(err){
                 console.log(err);
                 res.send(err);
@@ -199,4 +199,25 @@ module.exports = {
         })
         .sort({average: -1});
     },
+}
+function districtToLink(district){
+    switch (district){
+        case "tan_phu":
+            return "tân phú";
+        case "tan_binh":
+            return "tân bình";
+        case "binh_tan":
+            return "bình tân";
+        case "binh_chanh":
+            return "bình chánh";
+        case "binh_thanh":
+            return "bình thạnh";
+        case "thu_duc":
+            return "thủ đức";
+        case "go_vap":
+            return "gò vấp";
+        case "hooc_mon":
+            return "hooc môn";
+    }
+    return district;
 }
