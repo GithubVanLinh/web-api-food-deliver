@@ -102,6 +102,11 @@ module.exports = {
 
     //district, street, number, name, timeOpen, timeClose
     addDiner: function(req, res, next){
+
+        if(req.body.data == null){
+            res.send("Oops..., something went wrong!");
+            return;
+        }
         const dinerInfo = JSON.parse(req.body.data);     
         var diner = new Diner(dinerInfo);
         diner.save(function(err, respon)
