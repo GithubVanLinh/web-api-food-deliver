@@ -2,6 +2,7 @@ const mongoose = require('../database/db');
 
 var dinerSchema = new mongoose.Schema({
     name: String,
+    img: String,
     district: String,
     street: String,
     number: String,
