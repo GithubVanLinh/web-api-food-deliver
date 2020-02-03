@@ -86,12 +86,9 @@ module.exports = {
             }
         )
     },
-    getByFoodName: function(req, res, next){        
-        if(req.body.name == null){
-            res.send("please enter name of food");
-            return;
-        }
-        Food.find({name:req.body.name})
+    getByFoodName: function(req, res, next){ 
+        name = req.query.name;
+        Food.find({name:name})
         .populate("diner")
         .sort({average: -1})
         .exec(function(err, response){
@@ -104,7 +101,9 @@ module.exports = {
                 kt.diner = response[0].diner;
                 res.json(kt);
                 }
-                res.send("null");
+                else{
+                    res.send("null");
+                }
             }
         })
     },

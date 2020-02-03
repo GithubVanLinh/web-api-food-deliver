@@ -15,7 +15,7 @@ module.exports = function(app)
     app.get('/district/:name', controller.getByDistrict);
 
     //name = ???
-    app.get('/foods/:name',controller.getByFoodName);
+    app.get('/foods/search',controller.getByFoodName);
 
     app.delete('/delete/:id', controller.deleteFood);
     
