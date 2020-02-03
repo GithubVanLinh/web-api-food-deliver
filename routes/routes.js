@@ -9,13 +9,14 @@ module.exports = function(app)
     app.post('/',controller.addDiner);
     
     app.get('/all',controller.getAll);
+    
+    app.get('/search',controller.getByFoodName);
 
     app.get('/all/food', controller.getAllFood);
 
     app.get('/district/:name', controller.getByDistrict);
 
     //name = ???
-    app.get('/foods/search',controller.getByFoodName);
 
     app.delete('/delete/:id', controller.deleteFood);
     

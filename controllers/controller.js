@@ -66,7 +66,8 @@ module.exports = {
         res.render("index",{title : "API"});
     },
     getAll: function(req, res, next){
-        Diner.find({})
+        const query = req.query;
+        Diner.find(query)
         .sort({average: -1})
         .exec(function(err,kq){
             res.json(kq);
@@ -87,19 +88,35 @@ module.exports = {
         )
     },
     getByFoodName: function(req, res, next){ 
-        name = req.query.name;
-        Food.find({name:name})
+        const name = req.query.name;
+        const district = req.query.dictrict;
+        
+        Food.findOne({name:name})
         .populate("diner")
         .sort({average: -1})
         .exec(function(err, response){
             if(err)
                 res.send(err);
-            else{
-                if(response[0]!= null){
+            else{                
+                if(response!= null){                    
                     kt = {};
-                kt.count = response[0].diner.length;                
-                kt.diner = response[0].diner;
-                res.json(kt);
+                    if(district)
+                    {                        
+                        kt.diner =[];
+                        response.diner.forEach(element => {
+                            if(element.district==district)
+                            {
+                                kt.diner.push(element);
+                            }
+                                
+                        });         
+                    }
+                    else{
+                        kt.diner = response.diner;
+                    }       
+                    kt.count = kt.diner.length;
+                    res.json(kt);
+                    
                 }
                 else{
                     res.send("null");
