@@ -1,10 +1,9 @@
 const { FoodService } = require("../services");
 
 module.exports.getListFood = async (req, res, next) => {
-  const { page, categories } = req.query;
+  const { page, ...rest } = req.query;
   try {
-    console.log("categories", categories);
-    const foods = await FoodService.getFoods(page);
+    const foods = await FoodService.getFoods(page, rest);
     res.status(200).json(foods);
   } catch (error) {
     console.log(error);
@@ -13,3 +12,5 @@ module.exports.getListFood = async (req, res, next) => {
     });
   }
 };
+
+module.exports.getFoodsByPriceAndArea = async function (req, res, next) {};

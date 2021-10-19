@@ -17,7 +17,7 @@ describe("Array", function () {
     data = [];
     data = await createSampleData();
   });
-  describe("#indexOf()", () => {
+  describe("get foods", () => {
     it("return 10 food", async () => {
       const res = await chai.request(app).get("/foods");
       console.log(res.body.totalFoods);
@@ -37,6 +37,19 @@ describe("Array", function () {
       assert.equal(res.body.foods.length, 4);
       console.log("name", res.body.foods[0].types[0].name);
       assert.exists(res.body.foods[0].types[0].name);
+    });
+
+    it("return 4 food", async () => {
+      const res = await chai.request(app).get("/foods").query({
+        page: 1,
+        caregories: data.categories[1],
+      });
+      console.log(res.body);
+      // assert.equal(res.status, 200);
+      // assert.equal(res.body.totalFoods, data.foods.length);
+      // assert.equal(res.body.foods.length, 4);
+      // console.log("name", res.body.foods[0].types[0].name);
+      // assert.exists(res.body.foods[0].types[0].name);
     });
   });
 });

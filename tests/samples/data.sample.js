@@ -118,7 +118,12 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "Com Suon",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [
+        data.categories[0]._id,
+        data.categories[1]._id,
+        data.categories[2]._id,
+        data.categories[3]._id,
+      ],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -148,7 +153,11 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "Bun Thit Nuong",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [
+        data.categories[1]._id,
+        data.categories[2]._id,
+        data.categories[3]._id,
+      ],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -161,9 +170,9 @@ async function addSampleFood() {
   );
   data.foods.push(
     await FoodModel.create({
-      name: "Tra chanh",
+      name: "Cơm Gà",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[2]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -178,7 +187,7 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "Nuoc Mia",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[0]._id, data.categories[2]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -193,7 +202,7 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "Kem",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[1]._id, data.categories[0]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -208,7 +217,7 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "Ca vien chien",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[1]._id, data.categories[3]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -223,7 +232,7 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "Banh mi thit",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[3]._id, data.categories[2]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -238,7 +247,7 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "Banh mi cha ca",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[3]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -253,7 +262,7 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "che",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[0]._id, data.categories[2]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -268,7 +277,7 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "banh mi trung",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[1]._id, data.categories[3]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,
@@ -283,7 +292,7 @@ async function addSampleFood() {
     await FoodModel.create({
       name: "Pho",
       types: [data.types[0]._id],
-      categories: [data.categories[1]._id, data.categories[2]._id],
+      categories: [data.categories[1]._id],
       price: 30000,
       street: data.streets[3]._id,
       district: data.districts[2]._id,

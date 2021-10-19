@@ -2,11 +2,16 @@ const mongoose = require("mongoose");
 
 const mongoosePaginate = require("mongoose-paginate-v2");
 
+const { removeVietnameseTones } = require("../utils");
+
 const FoodSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    validate: (v) => /^[0-9a-zA-Z\s]*$/.test(v),
+    validate: (v) =>
+      /^[a-z0-9A-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*$/.test(
+        v
+      ),
   },
   searchName: {
     type: String,
@@ -78,8 +83,10 @@ const FoodSchema = new mongoose.Schema({
   },
 });
 
-FoodSchema.pre("save", (next) => {
-  this.searchName = this.name;
+FoodSchema.pre("save", function foodPreSave(next) {
+  if (this.name) {
+    this.searchName = removeVietnameseTones(this.name).trim();
+  }
   next();
 });
 

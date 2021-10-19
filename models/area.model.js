@@ -4,7 +4,10 @@ const AreaSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    validate: (v) => /^[0-9a-zA-Z\s]*$/.test(v),
+    validate: (v) =>
+      /^[a-z0-9A-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*$/.test(
+        v
+      ),
     set: (v) => v.toLowerCase(),
     get: (v) => v.toLowerCase(),
   },
